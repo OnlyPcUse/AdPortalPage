@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Ad Display</title>
+    <style>
+        :root {
+            --primary-color: #4361ee;
+            --secondary-color: #3f37c9;
+            --accent-color: #4895ef;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+            --success-color: #4cc9f0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: var(--dark-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            border-radius: 0 0 10px 10px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .ad-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+        
+        .ad-unit {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .ad-unit:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .ad-label {
+            background: var(--accent-color);
+            color: white;
+            padding: 8px 15px;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+        
+        .ad-content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 150px;
+        }
+        
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+        }
+        
+        button {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        button:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        button:active {
+            transform: translateY(0);
+        }
+        
+        .timer-display {
+            text-align: center;
+            font-size: 1.2rem;
+            margin: 20px 0;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+            background-color: var(--dark-color);
+            color: white;
+            border-radius: 10px 10px 0 0;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .ad-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .controls {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            button {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Modern Ad Display</h1>
+            <p class="subtitle">Responsive advertising with smooth auto-scroll</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="controls">
+            <button id="startScroll">Start Auto-Scroll</button>
+            <button id="stopScroll">Stop Auto-Scroll</button>
+        </div>
+        
+        <div class="timer-display" id="timer">Auto-scroll will run for: 60 seconds</div>
+        
+        <div class="ad-container">
+            <div class="ad-unit">
+                <div class="ad-label">Advertisement</div>
+                <div class="ad-content">
+                    <ins style="width: 100%; height: 90px;" data-width="728" data-height="90" class="g9cd6426ea2" data-domain="//015467.shop" data-affquery="/e16428391607f445d360/9cd6426ea2/?placementName=default">
+                        <script src="//015467.shop/js/responsive.js" async></script>
+                    </ins>
+                </div>
+            </div>
+            
+            <div class="ad-unit">
+                <div class="ad-label">Advertisement</div>
+                <div class="ad-content">
+                    <ins style="width: 100%; height: 250px;" data-width="300" data-height="250" class="j2367d354aa" data-domain="//015467.shop" data-affquery="/eed81bca18517a4a3359/2367d354aa/?placementName=default">
+                        <script src="//015467.shop/js/responsive.js" async></script>
+                    </ins>
+                </div>
+            </div>
+            
+            <div class="ad-unit">
+                <div class="ad-label">Advertisement</div>
+                <div class="ad-content">
+                    <ins style="width: 100%; height: 60px;" data-width="468" data-height="60" class="p9153cd0c16" data-domain="//015467.shop" data-affquery="/cab0233f79411d10de69/9153cd0c16/?placementName=default">
+                        <script src="//015467.shop/js/responsive.js" async></script>
+                    </ins>
+                </div>
+            </div>
+            
+            <div class="ad-unit">
+                <div class="ad-label">Advertisement</div>
+                <div class="ad-content">
+                    <ins style="width: 100%; height: 600px;" data-width="160" data-height="600" class="ta1a1dd50ba" data-domain="//015467.shop" data-affquery="/d8f046fc5934472d8e63/a1a1dd50ba/?placementName=default">
+                        <script src="//015467.shop/js/responsive.js" async></script>
+                    </ins>
+                </div>
+            </div>
+            
+            <div class="ad-unit">
+                <div class="ad-label">Advertisement</div>
+                <div class="ad-content">
+                    <ins style="width: 100%; height: 600px;" data-width="120" data-height="600" class="b1d1dd79021" data-domain="//015467.shop" data-affquery="/23e69bde512c70a39193/1d1dd79021/?placementName=default">
+                        <script src="//015467.shop/js/responsive.js" async></script>
+                    </ins>
+                </div>
+            </div>
+            
+            <div class="ad-unit">
+                <div class="ad-label">Advertisement</div>
+                <div class="ad-content">
+                    <ins style="width: 100%; height: 50px;" data-width="320" data-height="50" class="o5b4b2ebd4e" data-domain="//015467.shop" data-affquery="/2b69cf9c845e61b95f5b/5b4b2ebd4e/?placementName=default">
+                        <script src="//015467.shop/js/responsive.js" async></script>
+                    </ins>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>© 2023 Modern Ad Display. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Auto-scroll functionality
+        let scrollInterval;
+        let scrollDirection = 1; // 1 for down, -1 for up
+        let remainingTime = 60; // 1 minute in seconds
+        let isScrolling = false;
+        
+        const startScrollBtn = document.getElementById('startScroll');
+        const stopScrollBtn = document.getElementById('stopScroll');
+        const timerDisplay = document.getElementById('timer');
+        
+        function startAutoScroll() {
+            if (isScrolling) return;
+            
+            isScrolling = true;
+            remainingTime = 60;
+            updateTimerDisplay();
+            
+            // Scroll to top first
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+            
+            // Start scrolling after a brief delay
+            setTimeout(() => {
+                scrollInterval = setInterval(() => {
+                    const scrollPosition = window.scrollY || window.pageYOffset;
+                    const windowHeight = window.innerHeight;
+                    const documentHeight = document.documentElement.scrollHeight;
+                    
+                    // Change direction if at top or bottom
+                    if (scrollPosition <= 0) {
+                        scrollDirection = 1;
+                    } else if (scrollPosition + windowHeight >= documentHeight - 10) {
+                        scrollDirection = -1;
+                    }
+                    
+                    // Scroll in the current direction
+                    window.scrollBy({
+                        top: scrollDirection * 50,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Update timer
+                    remainingTime--;
+                    updateTimerDisplay();
+                    
+                    // Stop after 1 minute
+                    if (remainingTime <= 0) {
+                        stopAutoScroll();
+                    }
+                }, 1000); // Update every second
+            }, 1000);
+        }
+        
+        function stopAutoScroll() {
+            clearInterval(scrollInterval);
+            isScrolling = false;
+            timerDisplay.textContent = 'Auto-scroll stopped';
+        }
+        
+        function updateTimerDisplay() {
+            timerDisplay.textContent = `Auto-scroll will run for: ${remainingTime} seconds`;
+        }
+        
+        // Event listeners
+        startScrollBtn.addEventListener('click', startAutoScroll);
+        stopScrollBtn.addEventListener('click', stopAutoScroll);
+        
+        // Responsive ad units
+        function resizeAds() {
+            const ads = document.querySelectorAll('.ad-content ins');
+            ads.forEach(ad => {
+                const container = ad.parentElement;
+                const width = container.offsetWidth;
+                
+                // Set the ad width to match its container
+                ad.style.width = `${width}px`;
+                
+                // For mobile, adjust some ad heights
+                if (window.innerWidth < 768) {
+                    if (ad.classList.contains('ta1a1dd50ba') || ad.classList.contains('b1d1dd79021')) {
+                        ad.style.height = '300px'; // Reduce tall ads on mobile
+                    }
+                }
+            });
+        }
+        
+        // Initial resize and on window resize
+        window.addEventListener('load', resizeAds);
+        window.addEventListener('resize', resizeAds);
+    </script>
+</body>
+</html>
